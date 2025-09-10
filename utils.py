@@ -22,7 +22,7 @@ class Quiz:
 
     def add_questions(self, question):
         if question not in self.questions:
-            self.questions.append(question)
+            self.questions.extend(question)
             return True
         return False
     
@@ -37,7 +37,7 @@ class Quiz:
             return question
         
     def check_answer(self,answer):
-        if self.questions[self.question_index].is_correct(answer):
+        if self.questions[self.question_index-1].is_correct(answer):
             self.player.score+=1
             print("Yes, You got the right answer")
             return True
